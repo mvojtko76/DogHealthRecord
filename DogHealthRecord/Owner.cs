@@ -12,10 +12,14 @@ namespace DogHealthRecord
         string mOwnerFirstName;
         string mOwnerLastName;
 
-        public static string PrintOwnerScreen(string mOwnerFirstName,string mOwnerLastName)
+        //Create constructor function
+        public Owner (string _OwnerFirstName, string _OwnerLastName)
         {
-            Console.WriteLine("Hello " + mOwnerFirstName + " " + mOwnerLastName);
-
+            //Use the in commend parameters to inialize our orignial member variables
+            mOwnerFirstName = _OwnerFirstName;
+            mOwnerLastName = _OwnerLastName;
+            
         }
+        
     }
 }
