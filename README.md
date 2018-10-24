@@ -1,9 +1,9 @@
-# * Dog Health Record *
+#  Dog Health Record 
 
 ******
 > ###Just prototype blueprint of the beginning stage of my first independent project 
 
-<!--###*A little something to help the owner keeping a track of their pets health records.*--> 
+<!--###*A little something to help the owner keeping a track of their pets health records. This will be probably going to be on-going project.*--> 
 ## Step 1
 ###**Research how to create an app** 
 ###Links:
@@ -14,9 +14,12 @@
 ##Step 2
 ### Design the blueprint 
 * To figure out how I want it to look like 
-*  What the code should look like 
-
-*Coding can be quite fun*
+*  What the code should look like
+<br>
+ 
+**Will be adding a little piece to it as I go along**
+<br>
+		*Coding can be quite fun*
 
 
 
