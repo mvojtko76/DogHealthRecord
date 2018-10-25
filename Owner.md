@@ -7,6 +7,7 @@
 *  Their phone number 
 
 ###Step 2
+####Blueprint what should look like:
 > Hello World and welcome to the program
 > <br> What is your name?
 > <br> What is your address? 
