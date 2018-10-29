@@ -1,5 +1,4 @@
-#  Dog Health Record 
-
+#Dog Health Record 
 ******
 > ###Just prototype blueprint of the beginning stage of my first independent project 
 
