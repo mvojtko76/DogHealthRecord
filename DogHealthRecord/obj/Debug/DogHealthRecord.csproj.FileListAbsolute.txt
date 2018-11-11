@@ -1,0 +1,7 @@
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\bin\Debug\DogHealthRecord.exe.config
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\bin\Debug\DogHealthRecord.exe
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\bin\Debug\DogHealthRecord.pdb
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\obj\Debug\DogHealthRecord.csprojAssemblyReference.cache
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\obj\Debug\DogHealthRecord.csproj.CoreCompileInputs.cache
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\obj\Debug\DogHealthRecord.exe
+\\vmware-host\Shared Folders\melissavojtko On My Mac\Desktop\DogHealthRecord\DogHealthRecord\obj\Debug\DogHealthRecord.pdb

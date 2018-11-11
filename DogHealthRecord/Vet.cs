@@ -8,13 +8,12 @@ namespace DogHealthRecord
 {
     class Vet
     {
-        //Setting up members variable for Ve
-        string mVetBusinessName;
-        string mVetName;
-        string mVetAddress;
-        string mVetCity;
-        string mVetState;
-        double mZipCode;
-        string mVetPhone;
+        
+        public static void VetInfor()
+        {
+            Console.WriteLine("Vetinernary Information\r\nPlease enter your Veternary Clinic");
+            string VetClinic = Console.ReadLine();
+
+        }
     }
 }
