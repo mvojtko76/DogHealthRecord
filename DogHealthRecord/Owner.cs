@@ -32,13 +32,15 @@ namespace DogHealthRecord
             string UserState = Console.ReadLine();
 
             //Asking for user zip code
-            Console.WriteLine("\r\n{0}, What is your ZipCode");
+            Console.WriteLine("\r\nWhat is your ZipCode?");
+            
+            //Call function of the menu
             choicesMenu();
         }
 
         private static void choicesMenu()
         {
-            Console.WriteLine("[D] for Dogs\r\n[V] for Veterniary\r\n[E] for Exit");
+            Console.WriteLine("\r\n[D] for Dogs\r\n[V] for Veterniary\r\n[E] for Exit");
             string UserChoiceMenu = Console.ReadLine();
 
             UserMenu(UserChoiceMenu);
@@ -50,14 +52,14 @@ namespace DogHealthRecord
             {
                 Dog.DogInfo();
 
-            } else if (UserChoiceMenu == "V") //  Veterniary Class
+            } else if (UserChoiceMenu == "V"||UserChoiceMenu=="v") //  Veterniary Class
             {
 
                 Vet.VetInfor();
-            } else if(UserChoiceMenu == "E")
+            } else if(UserChoiceMenu == "E"||UserChoiceMenu=="e")
             {
 
-                //break;
+                return;
             }
 
                 
