@@ -33,9 +33,29 @@ namespace DogHealthRecord
 
             //Asking for user zip code
             Console.WriteLine("\r\nWhat is your ZipCode?");
-            
+            string OwnerZipCode = Console.ReadLine();
+            validatedOwnerZipCode(OwnerZipCode);
             //Call function of the menu
             choicesMenu();
+        }
+
+        private static void validatedOwnerZipCode(string ownerZipCode)
+        {
+            //This should run if the user leaves it blank or empty spaces
+            while (string.IsNullOrEmpty(ownerZipCode))
+            {
+                //Alert the user to the problem
+                Console.WriteLine("I am sorry but you can't leave this blank.");
+                ownerZipCode = Console.ReadLine();
+
+                Console.WriteLine("Please enter correct data.");
+                ownerZipCode = Console.ReadLine();
+               
+
+            }
+            
+                
+            
         }
 
         private static void choicesMenu()

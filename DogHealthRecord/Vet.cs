@@ -28,10 +28,12 @@ namespace DogHealthRecord
             string VetCity = Console.ReadLine();
 
             //Asking the user for the state where their Vet located at
-            Console.WriteLine("\r\nWhat is {0}State located at?", VetClinic);
+            Console.WriteLine("\r\nWhat is {0} State located at?", VetClinic);
             string VetState = Console.ReadLine();
 
+
             //Asking the user for what zip code is their Vet live in
+            Console.WriteLine("\r\nWhat is {0} ZipCode located at",VetClinic);
             string VetZipCodeString = Console.ReadLine();
 
             validatedZipCode(VetZipCodeString);
@@ -43,35 +45,23 @@ namespace DogHealthRecord
         private static void validatedZipCode(string vetZipCodeString)
         {
             //This should run if the user leaves it blank or empty spaces
-            while (string.IsNullOrWhiteSpace(vetZipCodeString))
+            if (string.IsNullOrEmpty(vetZipCodeString))
             {
                 //Alert the user to the problem
                 Console.WriteLine("I am sorry but you can't leave this blank.");
-
-                //Re-ask the user the questions
-                Console.WriteLine("Please type in your menu choice and press enter!");
-
-                vetZipCodeString = Console.ReadLine();
+                return;
+                
+            } else if (vetZipCodeString.Length != 4)
+            {
+                Console.WriteLine("Please enter correct data.");
+                return;
             }
 
-            //Checking to see if it is valid ZipCode with If/Else statement
-            if (vetZipCodeString == "#####-####")
-            {
-                Console.WriteLine("This is valid Zip Code");
+            
 
-            } else if (vetZipCodeString == "######")
-            {
-                Console.WriteLine("This is Valid Zip Code");
-
-            } else if (vetZipCodeString == "####")
-            {
-                Console.WriteLine("This is not Valid Zip Code.\r\nPlease re-enter the correct Zip Code format.");
-                vetZipCodeString = Console.ReadLine();
-
-            }
-
+        
+    
         }
-
         private static void userChoiceMenu()
         {
             Console.WriteLine("[O] to return to back to Owner\r\n[D] for Dog\r\n[E] for Exit");
