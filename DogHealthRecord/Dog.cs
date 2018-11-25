@@ -7,8 +7,7 @@ using System.Threading.Tasks;
 namespace DogHealthRecord
 {
     class Dog
-    {
-    
+    {   
         public static void DogInfo()
         {
             Console.WriteLine("\r\nDog Information\r\nNow please enter your Dog's Name.");
@@ -17,43 +16,40 @@ namespace DogHealthRecord
             Console.WriteLine("\r\n{0} is boy or girl", DogName);
             string DogGender = Console.ReadLine();
 
-            Console.WriteLine("\r\nHow old is your dog {0}?", DogName);
+            Console.WriteLine("\r\nHow old is your dog {0}? (In numbers only)", DogName);
             string DogAgeString = Console.ReadLine();
 
-            Console.WriteLine("Please also enter in weeks or years to right next to your {0} Age.", DogAgeString);
+            Console.WriteLine("Please also enter in weeks or years to right next to {0} Age.", DogName);
             string DogAgeType = Console.ReadLine();
 
+            //Vaccine Schedule
+            Console.WriteLine("\r\nHere is {0} Vaccine Schedule:\r\n", DogName);
+
+            VaccineSchedule(DogAgeString, DogName, DogAgeType);
             Console.WriteLine("\r\nWhat type of first breed is {0}", DogName);
             string DogBreed1 = Console.ReadLine();
 
             Console.WriteLine("\r\nIs {0} a mixed breed?\r\n[Y]es or [N]o",DogName);
-            string DogBreed2 = Console.ReadLine();
+            string SecBreedOption = Console.ReadLine();
 
-            SecondaryBreedOption(DogName, DogGender, DogAgeString, DogAgeType, DogBreed1,DogBreed2);
-            
-            //Vaccine Schedule
-            Console.WriteLine("\r\nHere is {0} Vaccine Schedule:\r\n", DogName);
+            //SecBreedOption(DogBreed2, DogName);
 
-            VaccineSchedule(DogAgeString,DogName);
-            SecBreedOption(DogBreed2,DogName);
+            if (SecBreedOption == "yes" || SecBreedOption == "Yes")
+            {
+                Console.WriteLine("What is {0} second breed?", DogName);
+                string MixedBreed = Console.ReadLine();
+                //Console.WriteLine(DogName + " is a " + DogGender + " and is " + DogAgeString + " " + DogAgeType + " with " + DogBreed1 + " and " + MixedBreed);
+            }
+
+            else if (SecBreedOption == "no" || SecBreedOption == "No")
+            {
+                Console.WriteLine(DogName + " is a " + DogGender + " and is " + DogAgeString + " " + DogAgeType + " with " + DogBreed1);
+            }
+
             userChoiceMenu();
         }
-
-        private static void SecondaryBreedOption(string dogName,string dogGender,string dogAgeString,string dogAgeType,string dogBreed1, string dogBreed2)
-        {
-            if (dogBreed2 == "yes" || dogBreed2 == "Yes")
-            {
-                Console.WriteLine(dogName + " is a " + dogGender + " and is " + dogAgeString + " " + dogAgeType + " with " + dogBreed1 + " and " + dogBreed2);
-
-            } else if (dogBreed2 == "no" || dogBreed2 == "No")
-
-            {
-
-                Console.WriteLine(dogName + " is a " + dogGender + " and is " + dogAgeString + " " + dogAgeType + " with " + dogBreed1);
-            }
-        }
-
-        public static void VaccineSchedule(string dogAgeString,string dogName)
+ 
+        public static void VaccineSchedule(string dogAgeString,string dogName,string dogAgeType)
         {
             int dogAge;
             while (!int.TryParse(dogAgeString, out dogAge))
@@ -66,53 +62,56 @@ namespace DogHealthRecord
                 dogAgeString = Console.ReadLine();
 
             }
-
             //Matching the user's dog age with right vaccine with if/else statement
-            if (dogAge == 6 && dogAge>=8)
+            if (dogAge == 6 && dogAge>=8 ||dogAgeType=="weeks"||dogAgeType=="Weeks")
             {
+                Console.WriteLine("Since {0} is 6 to 8 week.\r\nYou will {1}.", dogName, string.Join(" , ", VaccineFor6to8Weeks()));
 
-                Console.WriteLine("Since {0} is 6 to 8 week.\r\nYou will need Distemper, Hepatitis, Parvirus, Parainfluenza, and Bordatella.", dogName);
-
-            } else if (dogAge==10 && dogAge>=12)
-                
+            } else if (dogAge>=10 && dogAge<=12 || dogAgeType == "weeks" || dogAgeType == "Week")               
             {
-
-                Console.WriteLine("Since {0} is 10 to 12 week.\r\nYou will need Distemper, Hepatitis, Parvirus, Parainfluenza, Cornoavirus, and Leptospirosis (optional).", dogName);
-
-            } else if (dogAge==14 && dogAge >= 16)
-
+                Console.WriteLine("Since {0} is 10 to 12 week.\r\nYou will need {1}.", dogName, string.Join(" , ", VaccineFor10to12Weeks()));
+            } else if (dogAge>=14 && dogAge <= 16 || dogAgeType == "weeks" || dogAgeType == "Week")
             {
-
-                Console.WriteLine("Since {0} is 14 to 16 week.\r\nYou will need Distemper, Hepatitis, Parvirus, Parainfluenza, and Lyme.", dogName);
-
-            } else if (dogAge <= 17)
-
-            {
-
-                Console.WriteLine("{0} is 17 weeks and above here is {0} Vaccine Schedule:\r\nFor Annual- You will need Rabies, Distemper, Hepatitis, Parvirus, Parainfluenza, and Bordatella.\r\nRemember Every 3 years- Distemper, Hepatitis, Parvirus, Parainfluenza, and Leptospirosis (optional).", dogName);
-
+                Console.WriteLine("Since {0} is 14 to 16 week.\r\nYou will need {1}.", dogName, string.Join(" , ", VaccineFor14to16Weeks()));
             }
-
- 
+            else if (dogAge > 16 || dogAgeType == "weeks" || dogAgeType == "Week" || dogAgeType=="Years"|| dogAgeType == "years")
+            {
+                Console.WriteLine("{0} is 17 weeks and above here is " + dogName + ":\r\n",dogName);
+                Console.WriteLine("For Annual- You will need {0}.\r\nRemember Every 3 years- {1}.", string.Join(" , ", AnnualVaccineSchedule()), string.Join(",",ForEvery3Years()));
+                    
+            }
         }
 
-        private static void SecBreedOption(string DogBreed2,string DogName)
+        private static string [] ForEvery3Years()
         {
-            if (DogBreed2 == "Y"||DogBreed2=="y")
-            {
-                Console.WriteLine("What is {0} second breed?",DogName);
-                string MixedBreed = Console.ReadLine();
+            
+            return new string[] { "Distemper", " Hepatitis", " Parvirus", " Parainfluenza", " and Leptospirosis (optional)" };
 
-                Console.WriteLine(MixedBreed);
-            } else if (DogBreed2=="N" || DogBreed2 == "y")
-            {
-                Console.WriteLine("None");
-            }
+        }
+
+        private static string[] AnnualVaccineSchedule()
+        {
+            return new string[] { "Rabies", "Distemper", "Hepatitis", "Parvirus", "Parainfluenza", "and Bordatella" };
+        }
+
+        private static string [] VaccineFor14to16Weeks()
+        {
+            return new string[] { "Distemper", "Hepatitis", "Parvirus", "Parainfluenza", " and Lyme" };
+        }
+
+        private static string [] VaccineFor10to12Weeks()
+        {
+            return new string [] { "Distemper", "Hepatitis", "Parvirus","Parainfluenza","Cornoavirus", " and Leptospirosis (optional)" };
+        }
+
+        public static string [] VaccineFor6to8Weeks()
+        {
+            return new string[] { "Distemper", "Hepatitis", "Parvirus", "Parainfluenza", "Bordatella" };
         }
 
         private static void userChoiceMenu()
         {
-            Console.WriteLine("[O] to return to back to owner\r\n[V] for Vet");
+            Console.WriteLine("[O] to return to back to owner\r\n[V] for Vet\r\n[E] for Exit");
             string choicesMenu = Console.ReadLine();
 
             if (choicesMenu == "O" || choicesMenu == "o")
@@ -122,6 +121,9 @@ namespace DogHealthRecord
             } else if (choicesMenu == "V"|| choicesMenu == "v")
             {
                 Vet.VetInfor();
+            } else if (choicesMenu=="E" || choicesMenu == "e")
+            {
+                return;
             }
 
             ValidatedUserResponse(choicesMenu);
